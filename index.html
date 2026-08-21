@@ -485,13 +485,19 @@ button {
 
     width: 100%;
 
+    height: 100vh;
+
     min-height: 100vh;
+
+    max-height: 100vh;
 
     background: #111;
 
     display: none;
 
     flex-direction: column;
+
+    overflow: hidden;
 
 }
 
@@ -503,11 +509,8 @@ button {
 
 
 /* =====================================================
-   ★ スマホ選択画面へ戻る専用バー
-=====================================================
-
-   ここをスマホ本体の外に置くことで、
-   アプリ内の戻るボタンと重ならない。
+   ★ スマホ選択画面へ戻る
+   ★ スマホ本体の外側
 ===================================================== */
 
 .phone-navigation {
@@ -515,6 +518,8 @@ button {
     width: 100%;
 
     height: 58px;
+
+    min-height: 58px;
 
     flex-shrink: 0;
 
@@ -561,16 +566,19 @@ button {
 
 
 /* =====================================================
-   スマホ本体
+   ★ スマホ本体
 ===================================================== */
 
 .phone-wrapper {
 
     width: 100%;
 
-    flex: 1;
+    height:
+        calc(100vh - 58px);
 
     min-height: 0;
+
+    flex: 1;
 
     display: flex;
 
@@ -579,6 +587,8 @@ button {
     align-items: center;
 
     background: #111;
+
+    overflow: hidden;
 
 }
 
@@ -590,11 +600,16 @@ button {
     height:
         min(844px, calc(100vh - 58px));
 
+    max-height:
+        calc(100vh - 58px);
+
     position: relative;
 
     overflow: hidden;
 
     background: #000;
+
+    flex-shrink: 0;
 
 }
 
@@ -609,7 +624,7 @@ button {
 
     inset: 0;
 
-    z-index: 20;
+    z-index: 200;
 
     background-color: #000;
 
@@ -625,16 +640,18 @@ button {
 
     justify-content: flex-start;
 
-    padding-top: 75px;
+    padding-top: 55px;
 
     /*
-       ★ タップでは解除しない
-       ★ スワイプ判定のみJavaScriptで行う
+       タップでは解除しない。
+       上スワイプのみ解除。
     */
 
     touch-action: none;
 
     user-select: none;
+
+    -webkit-user-select: none;
 
 }
 
@@ -655,12 +672,13 @@ button {
 
     pointer-events: none;
 
-}
+    flex-shrink: 0;
 
+}
 
 .lock-time {
 
-    font-size: 70px;
+    font-size: 64px;
 
     line-height: 1;
 
@@ -668,18 +686,21 @@ button {
 
     letter-spacing: -3px;
 
-}
+    white-space: nowrap;
 
+}
 
 .lock-date {
 
-    margin-top: 18px;
+    margin-top: 10px;
 
     font-size: 18px;
 
-    line-height: 1.2;
+    line-height: 1.3;
 
     text-align: center;
+
+    white-space: nowrap;
 
 }
 
@@ -696,7 +717,9 @@ button {
 
     right: 0;
 
-    bottom: 75px;
+    bottom: 45px;
+
+    height: 75px;
 
     display: flex;
 
@@ -710,7 +733,7 @@ button {
 
     font-size: 15px;
 
-    line-height: 1.7;
+    line-height: 1.5;
 
     opacity: .9;
 
@@ -763,7 +786,7 @@ button {
 
     background: #111;
 
-    z-index: 15;
+    z-index: 150;
 
     display: none;
 
@@ -771,7 +794,7 @@ button {
 
     align-items: center;
 
-    padding-top: 85px;
+    padding-top: 75px;
 
 }
 
@@ -927,6 +950,8 @@ button {
     padding:
         55px 20px 30px;
 
+    z-index: 10;
+
 }
 
 .home-screen.active {
@@ -1037,7 +1062,7 @@ button {
 
     display: none;
 
-    z-index: 50;
+    z-index: 500;
 
 }
 
@@ -1208,7 +1233,7 @@ button {
 
     background: #e8e8e8;
 
-    z-index: 100;
+    z-index: 600;
 
 }
 
@@ -1279,7 +1304,11 @@ button {
 
         width: 100vw;
 
-        height: 100%;
+        height:
+            calc(100vh - 58px);
+
+        max-height:
+            calc(100vh - 58px);
 
     }
 
@@ -1296,6 +1325,32 @@ button {
 
     }
 
+    .lock-screen {
+
+        padding-top: 50px;
+
+    }
+
+    .lock-time {
+
+        font-size: 62px;
+
+    }
+
+    .lock-date {
+
+        font-size: 17px;
+
+        margin-top: 8px;
+
+    }
+
+    .swipe-area {
+
+        bottom: 40px;
+
+    }
+
 }
 
 
@@ -1307,25 +1362,27 @@ button {
 
     .lock-screen {
 
-        padding-top: 45px;
+        padding-top: 35px;
 
     }
 
     .lock-time {
 
-        font-size: 58px;
+        font-size: 52px;
 
     }
 
     .lock-date {
 
-        margin-top: 10px;
+        margin-top: 8px;
+
+        font-size: 15px;
 
     }
 
     .swipe-area {
 
-        bottom: 35px;
+        bottom: 25px;
 
     }
 
@@ -1738,7 +1795,7 @@ button {
 
 
 <!-- =====================================================
-     ★ スマホ本体
+     ★ スマホ画面
 ===================================================== -->
 
 <section
@@ -1746,10 +1803,7 @@ button {
     class="screen">
 
 
-    <!-- ================================================
-         ★ スマホ選択画面へ戻る
-         ★ スマホ本体の外側
-    ================================================= -->
+    <!-- スマホ本体の外側 -->
 
     <div class="phone-navigation">
 
@@ -1764,9 +1818,7 @@ button {
     </div>
 
 
-    <!-- ================================================
-         スマホ本体
-    ================================================= -->
+    <!-- スマホ本体 -->
 
     <div class="phone-wrapper">
 
@@ -1774,20 +1826,16 @@ button {
         <div class="phone">
 
 
-            <!-- ========================================
-                 ★ ロック画面
-            ========================================= -->
-
+            <!-- =================================================
+                 ロック画面
+            ================================================= -->
 
             <div
                 id="lockScreen"
                 class="lock-screen">
 
 
-                <!-- 時間と日付 -->
-
                 <div class="lock-info">
-
 
                     <div
                         class="lock-time"
@@ -1806,40 +1854,29 @@ button {
 
                     </div>
 
-
                 </div>
 
-
-                <!-- スワイプ案内 -->
 
                 <div class="swipe-area">
 
-
                     <div class="swipe-arrow">
-
                         ↑
-
                     </div>
-
 
                     <div>
-
                         上にスワイプして<br>
                         ロック解除
-
                     </div>
 
-
                 </div>
-
 
             </div>
 
 
 
-            <!-- ========================================
-                 パスコード画面
-            ========================================= -->
+            <!-- =================================================
+                 パスコード
+            ================================================= -->
 
             <div
                 id="passcodeScreen"
@@ -1847,9 +1884,7 @@ button {
 
 
                 <div class="passcode-title">
-
                     パスコードを入力
-
                 </div>
 
 
@@ -1944,16 +1979,15 @@ button {
                         class="phone-key"
                         onclick="phoneCheck()">✓</button>
 
-
                 </div>
 
             </div>
 
 
 
-            <!-- ========================================
+            <!-- =================================================
                  ホーム画面
-            ========================================= -->
+            ================================================= -->
 
             <div
                 id="homeScreen"
@@ -1962,18 +1996,12 @@ button {
 
                 <div class="status-bar">
 
-                    <span
-                        id="homeTime">
-
+                    <span id="homeTime">
                         00:00
-
                     </span>
 
-
                     <span>
-
                         ▮▮▮　Wi-Fi　🔋
-
                     </span>
 
                 </div>
@@ -1988,9 +2016,9 @@ button {
 
 
 
-            <!-- ========================================
+            <!-- =================================================
                  LINE
-            ========================================= -->
+            ================================================= -->
 
             <div
                 id="lineApp"
@@ -1999,7 +2027,6 @@ button {
 
                 <div class="app-header">
 
-
                     <button
                         class="app-back"
                         onclick="closeApp()">
@@ -2007,7 +2034,6 @@ button {
                         ‹
 
                     </button>
-
 
                     LINE
 
@@ -2040,11 +2066,8 @@ button {
                         </button>
 
 
-                        <div
-                            id="chatName">
-
+                        <div id="chatName">
                         </div>
-
 
                     </div>
 
@@ -2067,9 +2090,9 @@ button {
 
 
 
-            <!-- ========================================
+            <!-- =================================================
                  画像アプリ
-            ========================================= -->
+            ================================================= -->
 
             <div
                 id="imageApp"
@@ -2088,10 +2111,8 @@ button {
                     </button>
 
 
-                    <span
-                        id="imageAppTitle">
+                    <span id="imageAppTitle">
                     </span>
-
 
                 </div>
 
@@ -2144,7 +2165,7 @@ const roomPasswords = {
 
 
 /* =====================================================
-   ★ 4人のスマホデータ
+   スマホデータ
 ===================================================== */
 
 const phoneData = {
@@ -2432,9 +2453,15 @@ function showScreen(id) {
         });
 
 
-    document
-        .getElementById(id)
-        .classList.add("active");
+    const target =
+        document.getElementById(id);
+
+
+    if (target) {
+
+        target.classList.add("active");
+
+    }
 
 }
 
@@ -2585,7 +2612,7 @@ function roomCheck() {
 
 
 /* =====================================================
-   ★ スマホを開く
+   スマホを開く
 ===================================================== */
 
 function openPhone(name) {
@@ -2594,12 +2621,21 @@ function openPhone(name) {
 
     phonePin = "";
 
+    currentApp = "";
+
 
     const data =
         phoneData[name];
 
 
-    /* ロック画面 */
+    if (!data) {
+
+        return;
+
+    }
+
+
+    /* ロック画面画像 */
 
     document
         .getElementById("lockScreen")
@@ -2607,7 +2643,7 @@ function openPhone(name) {
         `url("${data.lockImage}")`;
 
 
-    /* ホーム画面 */
+    /* ホーム画面画像 */
 
     document
         .getElementById("homeScreen")
@@ -2615,28 +2651,38 @@ function openPhone(name) {
         `url("${data.homeImage}")`;
 
 
+    /* アプリ作成 */
+
     createHomeApps();
 
 
-    /* 初期状態 */
+    /* ロック画面を表示 */
 
     document
         .getElementById("lockScreen")
         .style.display = "flex";
 
 
+    /* パスコード画面を隠す */
+
     document
         .getElementById("passcodeScreen")
         .classList.remove("active");
 
+
+    /* ホーム画面を隠す */
 
     document
         .getElementById("homeScreen")
         .classList.remove("active");
 
 
+    /* アプリを全部閉じる */
+
     closeApp();
 
+
+    /* 忘れた場合の表示を消す */
 
     document
         .getElementById("forgotMessage")
@@ -2653,7 +2699,7 @@ function openPhone(name) {
 
 
 /* =====================================================
-   ★ スマホ選択画面へ戻る
+   スマホ選択画面へ戻る
 ===================================================== */
 
 function backToPhoneList() {
@@ -2673,12 +2719,14 @@ function backToPhoneList() {
 
 
 /* =====================================================
-   ★★★ ロック画面のスワイプ処理 ★★★
+   ★ ロック画面スワイプ
 ===================================================== */
 
 let swipeStartY = 0;
 
 let swipeStartX = 0;
+
+let isSwiping = false;
 
 
 const lockScreen =
@@ -2687,9 +2735,9 @@ const lockScreen =
     );
 
 
-/*
-   指を触れた位置を記録
-*/
+/* -----------------------------------------------------
+   タッチ開始
+----------------------------------------------------- */
 
 lockScreen.addEventListener(
     "touchstart",
@@ -2703,24 +2751,66 @@ lockScreen.addEventListener(
 
         }
 
+
         swipeStartY =
             event.touches[0].clientY;
 
         swipeStartX =
             event.touches[0].clientX;
 
+        isSwiping = true;
+
     },
-    { passive: true }
+    {
+        passive: false
+    }
 );
 
 
-/*
-   指を離したときに判定
-*/
+/* -----------------------------------------------------
+   タッチ移動
+----------------------------------------------------- */
+
+lockScreen.addEventListener(
+    "touchmove",
+    function(event) {
+
+        if (!isSwiping) {
+
+            return;
+
+        }
+
+        /*
+           ブラウザ側のスクロールを防止
+        */
+
+        event.preventDefault();
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+/* -----------------------------------------------------
+   タッチ終了
+----------------------------------------------------- */
 
 lockScreen.addEventListener(
     "touchend",
     function(event) {
+
+        if (!isSwiping) {
+
+            return;
+
+        }
+
+
+        isSwiping = false;
+
 
         if (
             event.changedTouches.length !== 1
@@ -2746,8 +2836,8 @@ lockScreen.addEventListener(
 
 
         /*
-           上方向へ100px以上
-           かつ横移動より縦移動が大きい
+           上方向へ100px以上移動
+           かつ横方向より縦方向の移動が大きい
         */
 
         if (
@@ -2761,54 +2851,72 @@ lockScreen.addEventListener(
         }
 
     },
-    { passive: true }
+    {
+        passive: false
+    }
 );
 
 
+/* =====================================================
+   ★ Pointer Event
+   Safari / PCでも安定して動くようにする
+===================================================== */
 
-/*
-   PCでのテスト用
-   マウスでも上にドラッグできる
-*/
+let pointerStartY = null;
 
-let mouseStartY = null;
+let pointerStartX = null;
 
 
 lockScreen.addEventListener(
-    "mousedown",
+    "pointerdown",
     function(event) {
 
-        mouseStartY =
+        pointerStartY =
             event.clientY;
+
+        pointerStartX =
+            event.clientX;
 
     }
 );
 
 
 lockScreen.addEventListener(
-    "mouseup",
+    "pointerup",
     function(event) {
 
-        if (mouseStartY === null) {
+        if (
+            pointerStartY === null
+        ) {
 
             return;
 
         }
 
 
-        const diff =
+        const diffY =
             event.clientY -
-            mouseStartY;
+            pointerStartY;
+
+        const diffX =
+            event.clientX -
+            pointerStartX;
 
 
-        if (diff < -100) {
+        if (
+            diffY < -100 &&
+            Math.abs(diffY) >
+            Math.abs(diffX)
+        ) {
 
             unlockPhone();
 
         }
 
 
-        mouseStartY = null;
+        pointerStartY = null;
+
+        pointerStartX = null;
 
     }
 );
@@ -2820,6 +2928,21 @@ lockScreen.addEventListener(
 ===================================================== */
 
 function unlockPhone() {
+
+    /*
+       すでに解除されていたら何もしない
+    */
+
+    if (
+        document
+            .getElementById("lockScreen")
+            .style.display === "none"
+    ) {
+
+        return;
+
+    }
+
 
     document
         .getElementById("lockScreen")
@@ -3054,6 +3177,10 @@ function addAppButton(
         "app-icon";
 
 
+    button.type =
+        "button";
+
+
     button.onclick =
         function() {
 
@@ -3205,6 +3332,10 @@ function openLine() {
             "line-person";
 
 
+        button.type =
+            "button";
+
+
         button.onclick =
             function() {
 
@@ -3296,7 +3427,7 @@ function closeChat() {
 
 
 /* =====================================================
-   ★ 時計
+   時計
 ===================================================== */
 
 function updateClock() {
@@ -3336,10 +3467,6 @@ function updateClock() {
         .textContent =
         time;
 
-
-    /*
-       日付も自動更新
-    */
 
     const month =
         now.getMonth() + 1;
