@@ -13,10 +13,11 @@
 
 <title>りゅうせい監禁事件</title>
 
+
 <style>
 
 /* =====================================================
-   基本
+   基本設定
 ===================================================== */
 
 * {
@@ -24,9 +25,18 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+html,
 body {
     margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+
     background: #111;
+
     color: white;
 
     font-family:
@@ -36,6 +46,8 @@ body {
         "Hiragino Kaku Gothic ProN",
         "Yu Gothic",
         sans-serif;
+
+    overflow-x: hidden;
 }
 
 button {
@@ -48,14 +60,19 @@ button {
 ===================================================== */
 
 .screen {
+
     width: 100%;
+
     min-height: 100vh;
 
     display: none;
+
 }
 
 .screen.active {
+
     display: flex;
+
 }
 
 
@@ -64,6 +81,7 @@ button {
 ===================================================== */
 
 .back-button {
+
     position: absolute;
 
     top: 18px;
@@ -71,14 +89,21 @@ button {
 
     z-index: 100;
 
+    width: 45px;
+    height: 45px;
+
     border: none;
+
     background: transparent;
 
     color: white;
 
-    font-size: 32px;
+    font-size: 38px;
+
+    line-height: 45px;
 
     cursor: pointer;
+
 }
 
 
@@ -96,11 +121,13 @@ button {
         );
 
     align-items: center;
+
     justify-content: center;
 
     flex-direction: column;
 
     text-align: center;
+
 }
 
 .title-small {
@@ -112,6 +139,7 @@ button {
     opacity: .6;
 
     margin-bottom: 25px;
+
 }
 
 .main-title {
@@ -124,6 +152,7 @@ button {
     letter-spacing: 5px;
 
     margin: 0 0 60px;
+
 }
 
 .start-button {
@@ -132,8 +161,7 @@ button {
 
     padding: 18px;
 
-    border:
-        1px solid white;
+    border: 1px solid white;
 
     background: transparent;
 
@@ -144,6 +172,7 @@ button {
     font-size: 18px;
 
     cursor: pointer;
+
 }
 
 
@@ -162,6 +191,7 @@ button {
     justify-content: center;
 
     padding: 30px;
+
 }
 
 .page-title {
@@ -171,6 +201,7 @@ button {
     margin-bottom: 45px;
 
     text-align: center;
+
 }
 
 .menu-button {
@@ -186,14 +217,14 @@ button {
 
     color: white;
 
-    border:
-        1px solid #555;
+    border: 1px solid #555;
 
     border-radius: 10px;
 
     font-size: 18px;
 
     cursor: pointer;
+
 }
 
 
@@ -213,6 +244,7 @@ button {
 
     padding:
         80px 20px 40px;
+
 }
 
 .selection-grid {
@@ -226,6 +258,7 @@ button {
         1fr 1fr;
 
     gap: 15px;
+
 }
 
 .selection-button {
@@ -236,14 +269,14 @@ button {
 
     color: white;
 
-    border:
-        1px solid #555;
+    border: 1px solid #555;
 
     border-radius: 12px;
 
     font-size: 20px;
 
     cursor: pointer;
+
 }
 
 .selection-button span {
@@ -255,11 +288,12 @@ button {
     opacity: .6;
 
     margin-bottom: 10px;
+
 }
 
 
 /* =====================================================
-   部屋暗証番号
+   部屋パスワード
 ===================================================== */
 
 .password-screen {
@@ -273,6 +307,7 @@ button {
     align-items: center;
 
     justify-content: center;
+
 }
 
 .password-title {
@@ -282,6 +317,7 @@ button {
     margin-bottom: 20px;
 
     text-align: center;
+
 }
 
 .pin-display {
@@ -291,6 +327,7 @@ button {
     gap: 18px;
 
     margin-bottom: 35px;
+
 }
 
 .pin-dot {
@@ -298,22 +335,22 @@ button {
     width: 15px;
     height: 15px;
 
-    border:
-        2px solid white;
+    border: 2px solid white;
 
     border-radius: 50%;
+
 }
 
 .pin-dot.filled {
 
     background: white;
+
 }
 
 
-/*
-   ★ 部屋の数字ボタン
-   スマホと同じ完全な円
-*/
+/* =====================================================
+   部屋数字ボタン
+===================================================== */
 
 .number-pad {
 
@@ -325,6 +362,7 @@ button {
         repeat(3, 1fr);
 
     gap: 12px;
+
 }
 
 .number-button {
@@ -345,11 +383,13 @@ button {
     font-size: 25px;
 
     cursor: pointer;
+
 }
 
 .number-button:active {
 
     background: #666;
+
 }
 
 .pin-message {
@@ -359,11 +399,12 @@ button {
     text-align: center;
 
     line-height: 1.8;
+
 }
 
 
 /* =====================================================
-   部屋調査成功画面
+   部屋成功画面
 ===================================================== */
 
 #roomSuccessScreen {
@@ -386,6 +427,7 @@ button {
     padding: 30px;
 
     text-align: center;
+
 }
 
 .success-sound {
@@ -393,6 +435,7 @@ button {
     font-size: 25px;
 
     margin-bottom: 25px;
+
 }
 
 .success-title {
@@ -400,6 +443,7 @@ button {
     font-size: 28px;
 
     margin-bottom: 30px;
+
 }
 
 .success-message {
@@ -409,6 +453,7 @@ button {
     line-height: 2;
 
     font-size: 16px;
+
 }
 
 .investigate-button {
@@ -426,14 +471,17 @@ button {
     border-radius: 8px;
 
     font-size: 16px;
+
 }
 
 
 /* =====================================================
-   スマホ全体
+   ★ スマホ画面全体
 ===================================================== */
 
-.phone-wrapper {
+#phoneScreen {
+
+    position: relative;
 
     width: 100%;
 
@@ -441,11 +489,97 @@ button {
 
     background: #111;
 
+    display: none;
+
+    flex-direction: column;
+
+}
+
+#phoneScreen.active {
+
+    display: flex;
+
+}
+
+
+/* =====================================================
+   ★ スマホ選択画面へ戻る専用バー
+=====================================================
+
+   ここをスマホ本体の外に置くことで、
+   アプリ内の戻るボタンと重ならない。
+===================================================== */
+
+.phone-navigation {
+
+    width: 100%;
+
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 15px;
+
+    background: #111;
+
+    border-bottom:
+        1px solid #292929;
+
+    z-index: 1000;
+
+}
+
+.phone-list-back {
+
+    height: 38px;
+
+    padding: 0 16px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #292929;
+
+    color: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+}
+
+.phone-list-back:active {
+
+    background: #444;
+
+}
+
+
+/* =====================================================
+   スマホ本体
+===================================================== */
+
+.phone-wrapper {
+
+    width: 100%;
+
+    flex: 1;
+
+    min-height: 0;
+
     display: flex;
 
     justify-content: center;
 
     align-items: center;
+
+    background: #111;
+
 }
 
 .phone {
@@ -454,49 +588,19 @@ button {
         min(390px, 100vw);
 
     height:
-        min(844px, 100vh);
+        min(844px, calc(100vh - 58px));
 
     position: relative;
 
     overflow: hidden;
 
     background: #000;
+
 }
 
 
 /* =====================================================
-   スマホ外部へ戻る
-===================================================== */
-
-.phone-list-back {
-
-    position: absolute;
-
-    top: 18px;
-    left: 18px;
-
-    z-index: 1000;
-
-    border: none;
-
-    background:
-        rgba(0,0,0,.45);
-
-    color: white;
-
-    border-radius: 50%;
-
-    width: 40px;
-    height: 40px;
-
-    font-size: 28px;
-
-    cursor: pointer;
-}
-
-
-/* =====================================================
-   ロック画面
+   ★ ロック画面
 ===================================================== */
 
 .lock-screen {
@@ -505,11 +609,9 @@ button {
 
     inset: 0;
 
-    background:
-        linear-gradient(
-            #222,
-            #111
-        );
+    z-index: 20;
+
+    background-color: #000;
 
     background-size: cover;
 
@@ -521,56 +623,136 @@ button {
 
     align-items: center;
 
-    justify-content: space-between;
+    justify-content: flex-start;
 
-    padding:
-        80px 20px 35px;
+    padding-top: 75px;
 
-    z-index: 20;
-}
+    /*
+       ★ タップでは解除しない
+       ★ スワイプ判定のみJavaScriptで行う
+    */
 
-.lock-time {
+    touch-action: none;
 
-    font-size: 72px;
+    user-select: none;
 
-    font-weight: 200;
-}
-
-.lock-date {
-
-    text-align: center;
-
-    font-size: 18px;
-
-    margin-top: -40px;
-}
-
-.swipe-area {
-
-    text-align: center;
-
-    font-size: 14px;
-
-    opacity: .8;
-
-    animation:
-        swipe 2s infinite;
-}
-
-@keyframes swipe {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
 }
 
 
 /* =====================================================
-   スマホパスコード
+   ★ 時間・日付
+===================================================== */
+
+.lock-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+
+    pointer-events: none;
+
+}
+
+
+.lock-time {
+
+    font-size: 70px;
+
+    line-height: 1;
+
+    font-weight: 200;
+
+    letter-spacing: -3px;
+
+}
+
+
+.lock-date {
+
+    margin-top: 18px;
+
+    font-size: 18px;
+
+    line-height: 1.2;
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   ★ スワイプ案内
+===================================================== */
+
+.swipe-area {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 75px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    opacity: .9;
+
+    pointer-events: none;
+
+}
+
+.swipe-arrow {
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    margin-bottom: 4px;
+
+    animation:
+        swipeArrow 1.6s infinite;
+
+}
+
+@keyframes swipeArrow {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(5px);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-5px);
+
+    }
+
+}
+
+
+/* =====================================================
+   ★ パスコード画面
 ===================================================== */
 
 .passcode-screen {
@@ -589,12 +771,14 @@ button {
 
     align-items: center;
 
-    padding-top: 100px;
+    padding-top: 85px;
+
 }
 
 .passcode-screen.active {
 
     display: flex;
+
 }
 
 .passcode-title {
@@ -602,6 +786,7 @@ button {
     font-size: 22px;
 
     margin-bottom: 20px;
+
 }
 
 .passcode-dots {
@@ -611,6 +796,7 @@ button {
     gap: 18px;
 
     margin-bottom: 25px;
+
 }
 
 .pass-dot {
@@ -618,15 +804,16 @@ button {
     width: 12px;
     height: 12px;
 
-    border:
-        1px solid white;
+    border: 1px solid white;
 
     border-radius: 50%;
+
 }
 
 .pass-dot.filled {
 
     background: white;
+
 }
 
 .forgot-button {
@@ -640,6 +827,7 @@ button {
     margin-bottom: 25px;
 
     cursor: pointer;
+
 }
 
 .forgot-message {
@@ -661,11 +849,13 @@ button {
     font-size: 14px;
 
     line-height: 1.7;
+
 }
 
 .forgot-message.show {
 
     display: block;
+
 }
 
 
@@ -683,6 +873,7 @@ button {
         repeat(3,1fr);
 
     gap: 12px;
+
 }
 
 .phone-key {
@@ -701,11 +892,20 @@ button {
     color: white;
 
     font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+.phone-key:active {
+
+    background: #555;
+
 }
 
 
 /* =====================================================
-   ホーム
+   ホーム画面
 ===================================================== */
 
 .home-screen {
@@ -718,11 +918,7 @@ button {
 
     flex-direction: column;
 
-    background:
-        linear-gradient(
-            #444,
-            #111
-        );
+    background-color: #333;
 
     background-size: cover;
 
@@ -730,11 +926,13 @@ button {
 
     padding:
         55px 20px 30px;
+
 }
 
 .home-screen.active {
 
     display: flex;
+
 }
 
 .status-bar {
@@ -754,6 +952,7 @@ button {
     font-size: 13px;
 
     z-index: 10;
+
 }
 
 .app-grid {
@@ -766,6 +965,7 @@ button {
     gap: 25px 15px;
 
     margin-top: 20px;
+
 }
 
 .app-icon {
@@ -783,6 +983,7 @@ button {
     color: white;
 
     cursor: pointer;
+
 }
 
 .app-icon-image {
@@ -807,6 +1008,7 @@ button {
     box-shadow:
         0 4px 12px
         rgba(0,0,0,.4);
+
 }
 
 .app-name {
@@ -815,11 +1017,12 @@ button {
 
     text-shadow:
         0 1px 4px black;
+
 }
 
 
 /* =====================================================
-   アプリ
+   アプリ画面
 ===================================================== */
 
 .app-screen {
@@ -835,11 +1038,13 @@ button {
     display: none;
 
     z-index: 50;
+
 }
 
 .app-screen.active {
 
     display: block;
+
 }
 
 .app-header {
@@ -860,6 +1065,7 @@ button {
     font-weight: bold;
 
     font-size: 18px;
+
 }
 
 .app-back {
@@ -868,17 +1074,24 @@ button {
 
     background: transparent;
 
-    font-size: 30px;
+    font-size: 34px;
 
-    margin-right: 10px;
+    width: 45px;
+
+    height: 50px;
+
+    margin-right: 8px;
 
     cursor: pointer;
+
+    color: #111;
+
 }
 
 
-/*
-   ★ 画像表示アプリ
-*/
+/* =====================================================
+   画像アプリ
+===================================================== */
 
 .image-app-content {
 
@@ -896,6 +1109,7 @@ button {
     justify-content: center;
 
     background: #111;
+
 }
 
 .image-app-content img {
@@ -907,6 +1121,7 @@ button {
     display: block;
 
     object-fit: contain;
+
 }
 
 
@@ -917,11 +1132,13 @@ button {
 .line-screen {
 
     background: white;
+
 }
 
 .line-list {
 
     padding: 10px 0;
+
 }
 
 .line-person {
@@ -944,6 +1161,7 @@ button {
     cursor: pointer;
 
     text-align: left;
+
 }
 
 .line-avatar {
@@ -966,17 +1184,19 @@ button {
     color: #555;
 
     font-size: 20px;
+
 }
 
 .line-person-name {
 
     font-size: 16px;
+
 }
 
 
-/*
+/* =====================================================
    LINEチャット
-*/
+===================================================== */
 
 .line-chat {
 
@@ -989,11 +1209,13 @@ button {
     background: #e8e8e8;
 
     z-index: 100;
+
 }
 
 .line-chat.active {
 
     display: block;
+
 }
 
 .line-chat-header {
@@ -1010,6 +1232,7 @@ button {
     align-items: center;
 
     padding: 0 15px;
+
 }
 
 .chat-image-wrapper {
@@ -1026,6 +1249,7 @@ button {
     justify-content: center;
 
     align-items: flex-start;
+
 }
 
 .chat-image-wrapper img {
@@ -1035,61 +1259,82 @@ button {
     height: auto;
 
     display: block;
+
 }
 
 
 /* =====================================================
-   戻る
+   PC・スマホ調整
 ===================================================== */
 
-.home-back-button {
+@media (max-width: 500px) {
 
-    position: absolute;
+    .phone-wrapper {
 
-    top: 15px;
-    left: 15px;
+        align-items: flex-start;
 
-    border: none;
-
-    background:
-        rgba(0,0,0,.5);
-
-    color: white;
-
-    border-radius: 50%;
-
-    width: 40px;
-    height: 40px;
-
-    font-size: 28px;
-
-    z-index: 200;
-}
-
-
-/* =====================================================
-   スマホ
-===================================================== */
-
-@media(max-width:500px) {
+    }
 
     .phone {
 
         width: 100vw;
 
-        height: 100vh;
+        height: 100%;
+
     }
 
     .selection-grid {
 
         grid-template-columns:
             1fr;
+
     }
 
     .selection-button {
 
         min-height: 90px;
+
     }
+
+}
+
+
+/* =====================================================
+   高さが小さい端末
+===================================================== */
+
+@media (max-height: 700px) {
+
+    .lock-screen {
+
+        padding-top: 45px;
+
+    }
+
+    .lock-time {
+
+        font-size: 58px;
+
+    }
+
+    .lock-date {
+
+        margin-top: 10px;
+
+    }
+
+    .swipe-area {
+
+        bottom: 35px;
+
+    }
+
+    .app-grid {
+
+        gap: 15px 10px;
+
+    }
+
 }
 
 </style>
@@ -1099,25 +1344,31 @@ button {
 
 <body>
 
+
 <div id="app">
 
 
 <!-- =====================================================
-     タイトル
+     タイトル画面
 ===================================================== -->
 
 <section
     id="titleScreen"
     class="screen active">
 
+
     <div class="title-small">
         MAYBEGOOD MYSTERY
     </div>
 
+
     <h1 class="main-title">
+
         りゅうせい<br>
         監禁事件
+
     </h1>
+
 
     <button
         class="start-button"
@@ -1130,6 +1381,7 @@ button {
 </section>
 
 
+
 <!-- =====================================================
      メニュー
 ===================================================== -->
@@ -1138,6 +1390,7 @@ button {
     id="menuScreen"
     class="screen">
 
+
     <button
         class="back-button"
         onclick="showScreen('titleScreen')">
@@ -1145,6 +1398,7 @@ button {
         ‹
 
     </button>
+
 
     <h2 class="page-title">
         捜査メニュー
@@ -1171,6 +1425,7 @@ button {
 </section>
 
 
+
 <!-- =====================================================
      部屋選択
 ===================================================== -->
@@ -1178,6 +1433,7 @@ button {
 <section
     id="roomSelectScreen"
     class="screen selection-screen">
+
 
     <button
         class="back-button"
@@ -1242,6 +1498,7 @@ button {
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -1362,8 +1619,9 @@ button {
 </section>
 
 
+
 <!-- =====================================================
-     部屋調査成功
+     部屋成功画面
 ===================================================== -->
 
 <section
@@ -1409,6 +1667,7 @@ button {
 </section>
 
 
+
 <!-- =====================================================
      スマホ選択
 ===================================================== -->
@@ -1428,7 +1687,9 @@ button {
 
 
     <h2 class="page-title">
+
         容疑者のスマホを調べる
+
     </h2>
 
 
@@ -1475,8 +1736,9 @@ button {
 </section>
 
 
+
 <!-- =====================================================
-     スマホ
+     ★ スマホ本体
 ===================================================== -->
 
 <section
@@ -1484,67 +1746,100 @@ button {
     class="screen">
 
 
+    <!-- ================================================
+         ★ スマホ選択画面へ戻る
+         ★ スマホ本体の外側
+    ================================================= -->
+
+    <div class="phone-navigation">
+
+        <button
+            class="phone-list-back"
+            onclick="backToPhoneList()">
+
+            ‹ スマホ選択へ戻る
+
+        </button>
+
+    </div>
+
+
+    <!-- ================================================
+         スマホ本体
+    ================================================= -->
+
     <div class="phone-wrapper">
 
 
         <div class="phone">
 
 
-            <!-- スマホ一覧へ戻る -->
+            <!-- ========================================
+                 ★ ロック画面
+            ========================================= -->
 
-            <button
-                class="phone-list-back"
-                onclick="backToPhoneList()">
-
-                ‹
-
-            </button>
-
-
-            <!-- =========================================
-                 ロック画面
-            ========================================== -->
 
             <div
                 id="lockScreen"
-                class="lock-screen"
-                onclick="unlockSwipe()">
+                class="lock-screen">
 
 
-                <div>
+                <!-- 時間と日付 -->
+
+                <div class="lock-info">
+
 
                     <div
                         class="lock-time"
                         id="lockTime">
 
-                        12:00
+                        00:00
 
                     </div>
 
 
-                    <div class="lock-date">
+                    <div
+                        class="lock-date"
+                        id="lockDate">
 
                         9月12日 金曜日
 
                     </div>
 
+
                 </div>
 
+
+                <!-- スワイプ案内 -->
 
                 <div class="swipe-area">
 
-                    ↑<br>
 
-                    上にスワイプしてロック解除
+                    <div class="swipe-arrow">
+
+                        ↑
+
+                    </div>
+
+
+                    <div>
+
+                        上にスワイプして<br>
+                        ロック解除
+
+                    </div>
+
 
                 </div>
+
 
             </div>
 
 
-            <!-- =========================================
-                 パスコード
-            ========================================== -->
+
+            <!-- ========================================
+                 パスコード画面
+            ========================================= -->
 
             <div
                 id="passcodeScreen"
@@ -1600,6 +1895,7 @@ button {
 
                 <div class="phone-keypad">
 
+
                     <button
                         class="phone-key"
                         onclick="phoneInput(1)">1</button>
@@ -1648,14 +1944,16 @@ button {
                         class="phone-key"
                         onclick="phoneCheck()">✓</button>
 
+
                 </div>
 
             </div>
 
 
-            <!-- =========================================
-                 ホーム
-            ========================================== -->
+
+            <!-- ========================================
+                 ホーム画面
+            ========================================= -->
 
             <div
                 id="homeScreen"
@@ -1664,12 +1962,18 @@ button {
 
                 <div class="status-bar">
 
-                    <span id="homeTime">
-                        12:00
+                    <span
+                        id="homeTime">
+
+                        00:00
+
                     </span>
 
+
                     <span>
-                        ▮▮▮ Wi-Fi 🔋
+
+                        ▮▮▮　Wi-Fi　🔋
+
                     </span>
 
                 </div>
@@ -1683,9 +1987,10 @@ button {
             </div>
 
 
-            <!-- =========================================
+
+            <!-- ========================================
                  LINE
-            ========================================== -->
+            ========================================= -->
 
             <div
                 id="lineApp"
@@ -1694,6 +1999,7 @@ button {
 
                 <div class="app-header">
 
+
                     <button
                         class="app-back"
                         onclick="closeApp()">
@@ -1701,6 +2007,7 @@ button {
                         ‹
 
                     </button>
+
 
                     LINE
 
@@ -1713,14 +2020,16 @@ button {
                 </div>
 
 
-                <!-- LINEチャット画像 -->
+                <!-- LINEチャット -->
 
                 <div
                     id="lineChat"
                     class="line-chat">
 
 
-                    <div class="line-chat-header">
+                    <div
+                        class="line-chat-header">
+
 
                         <button
                             class="app-back"
@@ -1733,7 +2042,9 @@ button {
 
                         <div
                             id="chatName">
+
                         </div>
+
 
                     </div>
 
@@ -1741,10 +2052,12 @@ button {
                     <div
                         class="chat-image-wrapper">
 
+
                         <img
                             id="chatImage"
                             src=""
                             alt="LINEトーク">
+
 
                     </div>
 
@@ -1753,9 +2066,10 @@ button {
             </div>
 
 
-            <!-- =========================================
-                 画像アプリ共通
-            ========================================== -->
+
+            <!-- ========================================
+                 画像アプリ
+            ========================================= -->
 
             <div
                 id="imageApp"
@@ -1763,6 +2077,7 @@ button {
 
 
                 <div class="app-header">
+
 
                     <button
                         class="app-back"
@@ -1777,16 +2092,19 @@ button {
                         id="imageAppTitle">
                     </span>
 
+
                 </div>
 
 
                 <div
                     class="image-app-content">
 
+
                     <img
                         id="appImage"
                         src=""
                         alt="アプリ内容">
+
 
                 </div>
 
@@ -1803,11 +2121,8 @@ button {
 </div>
 
 
-<script>
 
-/* =====================================================
-   ★ ここからゲーム設定
-===================================================== */
+<script>
 
 
 /* =====================================================
@@ -1827,22 +2142,13 @@ const roomPasswords = {
 };
 
 
+
 /* =====================================================
-   スマホのデータ
-=====================================================
-
-   ★ ここが今回の重要部分
-
-   4人それぞれに別のデータを設定できます。
-
+   ★ 4人のスマホデータ
 ===================================================== */
 
 const phoneData = {
 
-
-    /* =============================================
-       みさ
-    ============================================= */
 
     "みさ": {
 
@@ -1856,7 +2162,6 @@ const phoneData = {
 
         homeImage:
             "images/misa-home.jpg",
-
 
         apps: {
 
@@ -1882,27 +2187,24 @@ const phoneData = {
 
         },
 
-
         line: [
 
             {
                 name: "りゅうせい",
-                image: "images/misa-line-ryusei.jpg"
+                image:
+                    "images/misa-line-ryusei.jpg"
             },
 
             {
                 name: "かなと",
-                image: "images/misa-line-kanato.jpg"
+                image:
+                    "images/misa-line-kanato.jpg"
             }
 
         ]
 
     },
 
-
-    /* =============================================
-       りんたろう
-    ============================================= */
 
     "りんたろう": {
 
@@ -1916,7 +2218,6 @@ const phoneData = {
 
         homeImage:
             "images/rintaro-home.jpg",
-
 
         apps: {
 
@@ -1942,7 +2243,6 @@ const phoneData = {
 
         },
 
-
         line: [
 
             {
@@ -1962,10 +2262,6 @@ const phoneData = {
     },
 
 
-    /* =============================================
-       ゆうき
-    ============================================= */
-
     "ゆうき": {
 
         password: "3333",
@@ -1978,7 +2274,6 @@ const phoneData = {
 
         homeImage:
             "images/yuuki-home.jpg",
-
 
         apps: {
 
@@ -2004,7 +2299,6 @@ const phoneData = {
 
         },
 
-
         line: [
 
             {
@@ -2024,10 +2318,6 @@ const phoneData = {
     },
 
 
-    /* =============================================
-       わたる
-    ============================================= */
-
     "わたる": {
 
         password: "4444",
@@ -2040,7 +2330,6 @@ const phoneData = {
 
         homeImage:
             "images/wataru-home.jpg",
-
 
         apps: {
 
@@ -2066,7 +2355,6 @@ const phoneData = {
 
         },
 
-
         line: [
 
             {
@@ -2086,6 +2374,7 @@ const phoneData = {
     }
 
 };
+
 
 
 /* =====================================================
@@ -2109,6 +2398,7 @@ const appNames = {
 };
 
 
+
 /* =====================================================
    現在の状態
 ===================================================== */
@@ -2125,7 +2415,6 @@ let phonePin = "";
 
 let currentApp = "";
 
-let currentChat = "";
 
 
 /* =====================================================
@@ -2150,6 +2439,7 @@ function showScreen(id) {
 }
 
 
+
 /* =====================================================
    部屋
 ===================================================== */
@@ -2165,6 +2455,10 @@ function openRoom(name, number) {
     document
         .getElementById("roomNumberText")
         .textContent = number;
+
+    document
+        .getElementById("roomPinMessage")
+        .textContent = "";
 
     updateRoomPin();
 
@@ -2193,7 +2487,7 @@ function roomInput(number) {
 function roomClear() {
 
     roomPin =
-        roomPin.slice(0,-1);
+        roomPin.slice(0, -1);
 
     updateRoomPin();
 
@@ -2237,11 +2531,6 @@ function roomCheck() {
     ) {
 
 
-        /*
-         ★ 正解したら
-         ★ 新しいページへ移動
-        */
-
         document
             .getElementById(
                 "roomSuccessMessage"
@@ -2249,7 +2538,7 @@ function roomCheck() {
             .innerHTML = `
 
                 <strong>
-                ${currentRoomName}の部屋を調べろ。
+                    ${currentRoomName}の部屋を調べろ。
                 </strong>
 
                 <br><br>
@@ -2294,8 +2583,9 @@ function roomCheck() {
 }
 
 
+
 /* =====================================================
-   スマホを開く
+   ★ スマホを開く
 ===================================================== */
 
 function openPhone(name) {
@@ -2309,36 +2599,26 @@ function openPhone(name) {
         phoneData[name];
 
 
-    /*
-     ロック画面画像
-    */
+    /* ロック画面 */
 
     document
         .getElementById("lockScreen")
         .style.backgroundImage =
-        `url('${data.lockImage}')`;
+        `url("${data.lockImage}")`;
 
 
-    /*
-     ホーム画面画像
-    */
+    /* ホーム画面 */
 
     document
         .getElementById("homeScreen")
         .style.backgroundImage =
-        `url('${data.homeImage}')`;
+        `url("${data.homeImage}")`;
 
-
-    /*
-     アプリをその人用に作る
-    */
 
     createHomeApps();
 
 
-    /*
-     初期状態
-    */
+    /* 初期状態 */
 
     document
         .getElementById("lockScreen")
@@ -2371,31 +2651,18 @@ function openPhone(name) {
 }
 
 
+
 /* =====================================================
-   スマホ一覧に戻る
+   ★ スマホ選択画面へ戻る
 ===================================================== */
 
 function backToPhoneList() {
 
-    /*
-     スマホを閉じる
-    */
-
     closeApp();
-
-
-    /*
-     状態をリセット
-    */
 
     currentPhoneName = "";
 
     phonePin = "";
-
-
-    /*
-     容疑者のスマホ選択画面へ
-    */
 
     showScreen(
         "phoneSelectScreen"
@@ -2404,11 +2671,155 @@ function backToPhoneList() {
 }
 
 
+
 /* =====================================================
-   スワイプ
+   ★★★ ロック画面のスワイプ処理 ★★★
 ===================================================== */
 
-function unlockSwipe() {
+let swipeStartY = 0;
+
+let swipeStartX = 0;
+
+
+const lockScreen =
+    document.getElementById(
+        "lockScreen"
+    );
+
+
+/*
+   指を触れた位置を記録
+*/
+
+lockScreen.addEventListener(
+    "touchstart",
+    function(event) {
+
+        if (
+            event.touches.length !== 1
+        ) {
+
+            return;
+
+        }
+
+        swipeStartY =
+            event.touches[0].clientY;
+
+        swipeStartX =
+            event.touches[0].clientX;
+
+    },
+    { passive: true }
+);
+
+
+/*
+   指を離したときに判定
+*/
+
+lockScreen.addEventListener(
+    "touchend",
+    function(event) {
+
+        if (
+            event.changedTouches.length !== 1
+        ) {
+
+            return;
+
+        }
+
+
+        const endY =
+            event.changedTouches[0].clientY;
+
+        const endX =
+            event.changedTouches[0].clientX;
+
+
+        const diffY =
+            endY - swipeStartY;
+
+        const diffX =
+            endX - swipeStartX;
+
+
+        /*
+           上方向へ100px以上
+           かつ横移動より縦移動が大きい
+        */
+
+        if (
+            diffY < -100 &&
+            Math.abs(diffY) >
+            Math.abs(diffX)
+        ) {
+
+            unlockPhone();
+
+        }
+
+    },
+    { passive: true }
+);
+
+
+
+/*
+   PCでのテスト用
+   マウスでも上にドラッグできる
+*/
+
+let mouseStartY = null;
+
+
+lockScreen.addEventListener(
+    "mousedown",
+    function(event) {
+
+        mouseStartY =
+            event.clientY;
+
+    }
+);
+
+
+lockScreen.addEventListener(
+    "mouseup",
+    function(event) {
+
+        if (mouseStartY === null) {
+
+            return;
+
+        }
+
+
+        const diff =
+            event.clientY -
+            mouseStartY;
+
+
+        if (diff < -100) {
+
+            unlockPhone();
+
+        }
+
+
+        mouseStartY = null;
+
+    }
+);
+
+
+
+/* =====================================================
+   ロック解除
+===================================================== */
+
+function unlockPhone() {
 
     document
         .getElementById("lockScreen")
@@ -2420,6 +2831,7 @@ function unlockSwipe() {
         .classList.add("active");
 
 }
+
 
 
 /* =====================================================
@@ -2444,7 +2856,7 @@ function phoneInput(number) {
 function phoneClear() {
 
     phonePin =
-        phonePin.slice(0,-1);
+        phonePin.slice(0, -1);
 
     updatePhonePin();
 
@@ -2515,8 +2927,9 @@ function phoneCheck() {
 }
 
 
+
 /* =====================================================
-   パスワード忘れた場合
+   パスワードを忘れた場合
 ===================================================== */
 
 function showForgotMessage() {
@@ -2526,10 +2939,9 @@ function showForgotMessage() {
 
 
     const box =
-        document
-            .getElementById(
-                "forgotMessage"
-            );
+        document.getElementById(
+            "forgotMessage"
+        );
 
 
     box.textContent =
@@ -2541,8 +2953,9 @@ function showForgotMessage() {
 }
 
 
+
 /* =====================================================
-   ホーム画面のアプリを作る
+   ホーム画面のアプリ
 ===================================================== */
 
 function createHomeApps() {
@@ -2560,10 +2973,6 @@ function createHomeApps() {
         phoneData[currentPhoneName];
 
 
-    /*
-     LINE
-    */
-
     if (data.apps.line) {
 
         addAppButton(
@@ -2576,17 +2985,15 @@ function createHomeApps() {
     }
 
 
-    /*
-     その他のアプリ
-    */
-
     const apps = [
+
         "memo",
         "safari",
         "photo",
         "mail",
         "calendar",
         "map"
+
     ];
 
 
@@ -2625,8 +3032,9 @@ function createHomeApps() {
 }
 
 
+
 /* =====================================================
-   アプリボタン追加
+   アプリボタン
 ===================================================== */
 
 function addAppButton(
@@ -2646,11 +3054,12 @@ function addAppButton(
         "app-icon";
 
 
-    button.onclick = function() {
+    button.onclick =
+        function() {
 
-        openApp(app);
+            openApp(app);
 
-    };
+        };
 
 
     button.innerHTML = `
@@ -2671,6 +3080,7 @@ function addAppButton(
 }
 
 
+
 /* =====================================================
    アプリを開く
 ===================================================== */
@@ -2680,10 +3090,6 @@ function openApp(app) {
     currentApp = app;
 
 
-    /*
-     LINE
-    */
-
     if (app === "line") {
 
         openLine();
@@ -2692,10 +3098,6 @@ function openApp(app) {
 
     }
 
-
-    /*
-     画像アプリ
-    */
 
     const data =
         phoneData[currentPhoneName];
@@ -2736,6 +3138,7 @@ function openApp(app) {
 }
 
 
+
 /* =====================================================
    アプリを閉じる
 ===================================================== */
@@ -2769,6 +3172,7 @@ function closeApp() {
 }
 
 
+
 /* =====================================================
    LINE
 ===================================================== */
@@ -2780,10 +3184,9 @@ function openLine() {
 
 
     const list =
-        document
-            .getElementById(
-                "lineList"
-            );
+        document.getElementById(
+            "lineList"
+        );
 
 
     list.innerHTML = "";
@@ -2813,11 +3216,15 @@ function openLine() {
         button.innerHTML = `
 
             <div class="line-avatar">
+
                 ${person.name.charAt(0)}
+
             </div>
 
             <div class="line-person-name">
+
                 ${person.name}
+
             </div>
 
         `;
@@ -2837,15 +3244,12 @@ function openLine() {
 }
 
 
+
 /* =====================================================
    LINEチャット
 ===================================================== */
 
 function openChat(person) {
-
-    currentChat =
-        person.name;
-
 
     document
         .getElementById(
@@ -2854,10 +3258,6 @@ function openChat(person) {
         .textContent =
         person.name;
 
-
-    /*
-     ★ 用意した画像を表示
-    */
 
     document
         .getElementById(
@@ -2876,8 +3276,9 @@ function openChat(person) {
 }
 
 
+
 /* =====================================================
-   LINEチャットから相手一覧へ
+   LINEチャット → 相手一覧
 ===================================================== */
 
 function closeChat() {
@@ -2890,14 +3291,12 @@ function closeChat() {
             "active"
         );
 
-
-    currentChat = "";
-
 }
 
 
+
 /* =====================================================
-   時計
+   ★ 時計
 ===================================================== */
 
 function updateClock() {
@@ -2909,13 +3308,13 @@ function updateClock() {
     const hours =
         String(
             now.getHours()
-        ).padStart(2,"0");
+        ).padStart(2, "0");
 
 
     const minutes =
         String(
             now.getMinutes()
-        ).padStart(2,"0");
+        ).padStart(2, "0");
 
 
     const time =
@@ -2937,6 +3336,45 @@ function updateClock() {
         .textContent =
         time;
 
+
+    /*
+       日付も自動更新
+    */
+
+    const month =
+        now.getMonth() + 1;
+
+
+    const date =
+        now.getDate();
+
+
+    const weekdays = [
+
+        "日曜日",
+        "月曜日",
+        "火曜日",
+        "水曜日",
+        "木曜日",
+        "金曜日",
+        "土曜日"
+
+    ];
+
+
+    const weekday =
+        weekdays[
+            now.getDay()
+        ];
+
+
+    document
+        .getElementById(
+            "lockDate"
+        )
+        .textContent =
+        `${month}月${date}日 ${weekday}`;
+
 }
 
 
@@ -2948,7 +3386,9 @@ setInterval(
 
 updateClock();
 
+
 </script>
+
 
 </body>
 
