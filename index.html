@@ -476,7 +476,7 @@ button {
 
 
 /* =====================================================
-   ★ スマホ画面全体
+   スマホ画面全体
 ===================================================== */
 
 #phoneScreen {
@@ -509,8 +509,7 @@ button {
 
 
 /* =====================================================
-   ★ スマホ選択画面へ戻る
-   ★ スマホ本体の外側
+   スマホ選択画面へ戻る
 ===================================================== */
 
 .phone-navigation {
@@ -566,7 +565,7 @@ button {
 
 
 /* =====================================================
-   ★ スマホ本体
+   スマホ本体
 ===================================================== */
 
 .phone-wrapper {
@@ -615,7 +614,7 @@ button {
 
 
 /* =====================================================
-   ★ ロック画面
+   ロック画面
 ===================================================== */
 
 .lock-screen {
@@ -642,11 +641,6 @@ button {
 
     padding-top: 90px;
 
-    /*
-       タップでは解除しない。
-       上スワイプのみ解除。
-    */
-
     touch-action: none;
 
     user-select: none;
@@ -657,7 +651,7 @@ button {
 
 
 /* =====================================================
-   ★ 時間・日付
+   時間・日付
 ===================================================== */
 
 .lock-info {
@@ -706,7 +700,7 @@ button {
 
 
 /* =====================================================
-   ★ スワイプ案内
+   スワイプ案内
 ===================================================== */
 
 .swipe-area {
@@ -775,7 +769,7 @@ button {
 
 
 /* =====================================================
-   ★ パスコード画面
+   パスコード画面
 ===================================================== */
 
 .passcode-screen {
@@ -893,7 +887,7 @@ button {
     display: grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, 1fr);
 
     gap: 12px;
 
@@ -1288,6 +1282,55 @@ button {
 }
 
 
+/* =====================================================
+   スマホ対応
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .phone-wrapper {
+
+        align-items: flex-start;
+
+    }
+
+    .phone {
+
+        width: 100vw;
+
+        height: calc(100vh - 58px);
+
+        max-height: calc(100vh - 58px);
+
+    }
+
+    .selection-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .selection-button {
+
+        min-height: 90px;
+
+    }
+
+}
+
+
+/* =====================================================
+   ここでCSS終了
+===================================================== */
+
+</style>
+
+</head>
+
+
+<body>
+
+
 <!-- =====================================================
      タイトル画面
 ===================================================== -->
@@ -1296,11 +1339,9 @@ button {
     id="titleScreen"
     class="screen active">
 
-
     <div class="title-small">
         MAYBEGOOD MYSTERY
     </div>
-
 
     <h1 class="main-title">
 
@@ -1308,7 +1349,6 @@ button {
         監禁事件
 
     </h1>
-
 
     <button
         class="start-button"
@@ -1321,7 +1361,6 @@ button {
 </section>
 
 
-
 <!-- =====================================================
      メニュー
 ===================================================== -->
@@ -1329,7 +1368,6 @@ button {
 <section
     id="menuScreen"
     class="screen">
-
 
     <button
         class="back-button"
@@ -1339,11 +1377,9 @@ button {
 
     </button>
 
-
     <h2 class="page-title">
         捜査メニュー
     </h2>
-
 
     <button
         class="menu-button"
@@ -1352,7 +1388,6 @@ button {
         容疑者の部屋を調べる
 
     </button>
-
 
     <button
         class="menu-button"
@@ -1365,7 +1400,6 @@ button {
 </section>
 
 
-
 <!-- =====================================================
      部屋選択
 ===================================================== -->
@@ -1373,7 +1407,6 @@ button {
 <section
     id="roomSelectScreen"
     class="screen selection-screen">
-
 
     <button
         class="back-button"
@@ -1383,54 +1416,44 @@ button {
 
     </button>
 
-
     <h2 class="page-title">
         容疑者の部屋を調べる
     </h2>
 
-
     <div class="selection-grid">
-
 
         <button
             class="selection-button"
             onclick="openRoom('みさ','101')">
 
             <span>101号室</span>
-
             みさの部屋
 
         </button>
-
 
         <button
             class="selection-button"
             onclick="openRoom('りんたろう','102')">
 
             <span>102号室</span>
-
             りんたろうの部屋
 
         </button>
-
 
         <button
             class="selection-button"
             onclick="openRoom('ゆうき','202')">
 
             <span>202号室</span>
-
             ゆうきの部屋
 
         </button>
-
 
         <button
             class="selection-button"
             onclick="openRoom('わたる','203')">
 
             <span>203号室</span>
-
             わたるの部屋
 
         </button>
@@ -1438,7 +1461,6 @@ button {
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1449,7 +1471,6 @@ button {
     id="roomPasswordScreen"
     class="screen password-screen">
 
-
     <button
         class="back-button"
         onclick="showScreen('roomSelectScreen')">
@@ -1458,13 +1479,11 @@ button {
 
     </button>
 
-
     <div class="password-title">
 
         <span id="roomNumberText"></span>号室
 
     </div>
-
 
     <div class="password-title">
 
@@ -1472,84 +1491,34 @@ button {
 
     </div>
 
-
     <div class="pin-display">
 
-        <div
-            class="pin-dot"
-            id="roomPin1">
-        </div>
-
-        <div
-            class="pin-dot"
-            id="roomPin2">
-        </div>
-
-        <div
-            class="pin-dot"
-            id="roomPin3">
-        </div>
-
-        <div
-            class="pin-dot"
-            id="roomPin4">
-        </div>
+        <div class="pin-dot" id="roomPin1"></div>
+        <div class="pin-dot" id="roomPin2"></div>
+        <div class="pin-dot" id="roomPin3"></div>
+        <div class="pin-dot" id="roomPin4"></div>
 
     </div>
-
 
     <div class="number-pad">
 
-        <button
-            class="number-button"
-            onclick="roomInput(1)">1</button>
+        <button class="number-button" onclick="roomInput(1)">1</button>
+        <button class="number-button" onclick="roomInput(2)">2</button>
+        <button class="number-button" onclick="roomInput(3)">3</button>
 
-        <button
-            class="number-button"
-            onclick="roomInput(2)">2</button>
+        <button class="number-button" onclick="roomInput(4)">4</button>
+        <button class="number-button" onclick="roomInput(5)">5</button>
+        <button class="number-button" onclick="roomInput(6)">6</button>
 
-        <button
-            class="number-button"
-            onclick="roomInput(3)">3</button>
+        <button class="number-button" onclick="roomInput(7)">7</button>
+        <button class="number-button" onclick="roomInput(8)">8</button>
+        <button class="number-button" onclick="roomInput(9)">9</button>
 
-        <button
-            class="number-button"
-            onclick="roomInput(4)">4</button>
-
-        <button
-            class="number-button"
-            onclick="roomInput(5)">5</button>
-
-        <button
-            class="number-button"
-            onclick="roomInput(6)">6</button>
-
-        <button
-            class="number-button"
-            onclick="roomInput(7)">7</button>
-
-        <button
-            class="number-button"
-            onclick="roomInput(8)">8</button>
-
-        <button
-            class="number-button"
-            onclick="roomInput(9)">9</button>
-
-        <button
-            class="number-button"
-            onclick="roomClear()">⌫</button>
-
-        <button
-            class="number-button"
-            onclick="roomInput(0)">0</button>
-
-        <button
-            class="number-button"
-            onclick="roomCheck()">✓</button>
+        <button class="number-button" onclick="roomClear()">⌫</button>
+        <button class="number-button" onclick="roomInput(0)">0</button>
+        <button class="number-button" onclick="roomCheck()">✓</button>
 
     </div>
-
 
     <div
         id="roomPinMessage"
@@ -1557,7 +1526,6 @@ button {
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1568,7 +1536,6 @@ button {
     id="roomSuccessScreen"
     class="screen">
 
-
     <button
         class="back-button"
         onclick="showScreen('roomSelectScreen')">
@@ -1577,24 +1544,18 @@ button {
 
     </button>
 
-
     <div class="success-sound">
         ガチャ…。
     </div>
 
-
     <div class="success-title">
-
         暗証番号は正しかったようだ。
-
     </div>
-
 
     <div
         id="roomSuccessMessage"
         class="success-message">
     </div>
-
 
     <button
         class="investigate-button"
@@ -1607,7 +1568,6 @@ button {
 </section>
 
 
-
 <!-- =====================================================
      スマホ選択
 ===================================================== -->
@@ -1615,7 +1575,6 @@ button {
 <section
     id="phoneSelectScreen"
     class="screen selection-screen">
-
 
     <button
         class="back-button"
@@ -1625,16 +1584,11 @@ button {
 
     </button>
 
-
     <h2 class="page-title">
-
         容疑者のスマホを調べる
-
     </h2>
 
-
     <div class="selection-grid">
-
 
         <button
             class="selection-button"
@@ -1644,7 +1598,6 @@ button {
 
         </button>
 
-
         <button
             class="selection-button"
             onclick="openPhone('りんたろう')">
@@ -1653,7 +1606,6 @@ button {
 
         </button>
 
-
         <button
             class="selection-button"
             onclick="openPhone('ゆうき')">
@@ -1661,7 +1613,6 @@ button {
             ゆうきのスマホ
 
         </button>
-
 
         <button
             class="selection-button"
@@ -1676,17 +1627,13 @@ button {
 </section>
 
 
-
 <!-- =====================================================
-     ★ スマホ画面
+     スマホ画面
 ===================================================== -->
 
 <section
     id="phoneScreen"
     class="screen">
-
-
-    <!-- スマホ本体の外側 -->
 
     <div class="phone-navigation">
 
@@ -1701,10 +1648,7 @@ button {
     </div>
 
 
-    <!-- スマホ本体 -->
-
     <div class="phone-wrapper">
-
 
         <div class="phone">
 
@@ -1717,7 +1661,6 @@ button {
                 id="lockScreen"
                 class="lock-screen">
 
-
                 <div class="lock-info">
 
                     <div
@@ -1728,7 +1671,6 @@ button {
 
                     </div>
 
-
                     <div
                         class="lock-date"
                         id="lockDate">
@@ -1738,7 +1680,6 @@ button {
                     </div>
 
                 </div>
-
 
                 <div class="swipe-area">
 
@@ -1756,7 +1697,6 @@ button {
             </div>
 
 
-
             <!-- =================================================
                  パスコード
             ================================================= -->
@@ -1765,36 +1705,18 @@ button {
                 id="passcodeScreen"
                 class="passcode-screen">
 
-
                 <div class="passcode-title">
                     パスコードを入力
                 </div>
 
-
                 <div class="passcode-dots">
 
-                    <div
-                        class="pass-dot"
-                        id="passDot1">
-                    </div>
-
-                    <div
-                        class="pass-dot"
-                        id="passDot2">
-                    </div>
-
-                    <div
-                        class="pass-dot"
-                        id="passDot3">
-                    </div>
-
-                    <div
-                        class="pass-dot"
-                        id="passDot4">
-                    </div>
+                    <div class="pass-dot" id="passDot1"></div>
+                    <div class="pass-dot" id="passDot2"></div>
+                    <div class="pass-dot" id="passDot3"></div>
+                    <div class="pass-dot" id="passDot4"></div>
 
                 </div>
-
 
                 <button
                     class="forgot-button"
@@ -1804,68 +1726,32 @@ button {
 
                 </button>
 
-
                 <div
                     id="forgotMessage"
                     class="forgot-message">
                 </div>
 
-
                 <div class="phone-keypad">
 
+                    <button class="phone-key" onclick="phoneInput(1)">1</button>
+                    <button class="phone-key" onclick="phoneInput(2)">2</button>
+                    <button class="phone-key" onclick="phoneInput(3)">3</button>
 
-                    <button
-                        class="phone-key"
-                        onclick="phoneInput(1)">1</button>
+                    <button class="phone-key" onclick="phoneInput(4)">4</button>
+                    <button class="phone-key" onclick="phoneInput(5)">5</button>
+                    <button class="phone-key" onclick="phoneInput(6)">6</button>
 
-                    <button
-                        class="phone-key"
-                        onclick="phoneInput(2)">2</button>
+                    <button class="phone-key" onclick="phoneInput(7)">7</button>
+                    <button class="phone-key" onclick="phoneInput(8)">8</button>
+                    <button class="phone-key" onclick="phoneInput(9)">9</button>
 
-                    <button
-                        class="phone-key"
-                        onclick="phoneInput(3)">3</button>
-
-                    <button
-                        class="phone-key"
-                        onclick="phoneInput(4)">4</button>
-
-                    <button
-                        class="phone-key"
-                        onclick="phoneInput(5)">5</button>
-
-                    <button
-                        class="phone-key"
-                        onclick="phoneInput(6)">6</button>
-
-                    <button
-                        class="phone-key"
-                        onclick="phoneInput(7)">7</button>
-
-                    <button
-                        class="phone-key"
-                        onclick="phoneInput(8)">8</button>
-
-                    <button
-                        class="phone-key"
-                        onclick="phoneInput(9)">9</button>
-
-                    <button
-                        class="phone-key"
-                        onclick="phoneClear()">⌫</button>
-
-                    <button
-                        class="phone-key"
-                        onclick="phoneInput(0)">0</button>
-
-                    <button
-                        class="phone-key"
-                        onclick="phoneCheck()">✓</button>
+                    <button class="phone-key" onclick="phoneClear()">⌫</button>
+                    <button class="phone-key" onclick="phoneInput(0)">0</button>
+                    <button class="phone-key" onclick="phoneCheck()">✓</button>
 
                 </div>
 
             </div>
-
 
 
             <!-- =================================================
@@ -1875,7 +1761,6 @@ button {
             <div
                 id="homeScreen"
                 class="home-screen">
-
 
                 <div class="status-bar">
 
@@ -1889,14 +1774,12 @@ button {
 
                 </div>
 
-
                 <div
                     id="appGrid"
                     class="app-grid">
                 </div>
 
             </div>
-
 
 
             <!-- =================================================
@@ -1906,7 +1789,6 @@ button {
             <div
                 id="lineApp"
                 class="app-screen">
-
 
                 <div class="app-header">
 
@@ -1922,23 +1804,18 @@ button {
 
                 </div>
 
-
                 <div
                     id="lineList"
                     class="line-list">
                 </div>
 
 
-                <!-- LINEチャット -->
-
                 <div
                     id="lineChat"
                     class="line-chat">
 
-
                     <div
                         class="line-chat-header">
-
 
                         <button
                             class="app-back"
@@ -1948,29 +1825,24 @@ button {
 
                         </button>
 
-
                         <div id="chatName">
                         </div>
 
                     </div>
 
-
                     <div
                         class="chat-image-wrapper">
-
 
                         <img
                             id="chatImage"
                             src=""
                             alt="LINEトーク">
 
-
                     </div>
 
                 </div>
 
             </div>
-
 
 
             <!-- =================================================
@@ -1981,9 +1853,7 @@ button {
                 id="imageApp"
                 class="app-screen">
 
-
                 <div class="app-header">
-
 
                     <button
                         class="app-back"
@@ -1993,22 +1863,18 @@ button {
 
                     </button>
 
-
                     <span id="imageAppTitle">
                     </span>
 
                 </div>
 
-
                 <div
                     class="image-app-content">
-
 
                     <img
                         id="appImage"
                         src=""
                         alt="アプリ内容">
-
 
                 </div>
 
@@ -2022,12 +1888,7 @@ button {
 </section>
 
 
-</div>
-
-
-
 <script>
-
 
 /* =====================================================
    部屋の暗証番号
@@ -2036,15 +1897,11 @@ button {
 const roomPasswords = {
 
     "101": "1234",
-
     "102": "1234",
-
     "202": "1234",
-
     "203": "1234"
 
 };
-
 
 
 /* =====================================================
@@ -2052,7 +1909,6 @@ const roomPasswords = {
 ===================================================== */
 
 const phoneData = {
-
 
     "みさ": {
 
@@ -2096,7 +1952,7 @@ const phoneData = {
             {
                 name: "りゅうせい",
                 image:
-                    "misa-line-ryusei.jpeg"
+                    "images/misa-line-ryusei.jpeg"
             },
 
             {
@@ -2280,7 +2136,6 @@ const phoneData = {
 };
 
 
-
 /* =====================================================
    アプリ名
 ===================================================== */
@@ -2288,19 +2143,13 @@ const phoneData = {
 const appNames = {
 
     memo: "メモ",
-
     safari: "Safari",
-
     photo: "写真",
-
     mail: "メール",
-
     calendar: "カレンダー",
-
     map: "マップ"
 
 };
-
 
 
 /* =====================================================
@@ -2308,17 +2157,13 @@ const appNames = {
 ===================================================== */
 
 let currentRoomName = "";
-
 let currentRoomNumber = "";
-
 let roomPin = "";
 
 let currentPhoneName = "";
-
 let phonePin = "";
 
 let currentApp = "";
-
 
 
 /* =====================================================
@@ -2349,7 +2194,6 @@ function showScreen(id) {
 }
 
 
-
 /* =====================================================
    部屋
 ===================================================== */
@@ -2357,9 +2201,7 @@ function showScreen(id) {
 function openRoom(name, number) {
 
     currentRoomName = name;
-
     currentRoomNumber = number;
-
     roomPin = "";
 
     document
@@ -2372,9 +2214,7 @@ function openRoom(name, number) {
 
     updateRoomPin();
 
-    showScreen(
-        "roomPasswordScreen"
-    );
+    showScreen("roomPasswordScreen");
 
 }
 
@@ -2382,9 +2222,7 @@ function openRoom(name, number) {
 function roomInput(number) {
 
     if (roomPin.length >= 4) {
-
         return;
-
     }
 
     roomPin += number;
@@ -2429,9 +2267,7 @@ function updateRoomPin() {
 function roomCheck() {
 
     if (roomPin.length !== 4) {
-
         return;
-
     }
 
 
@@ -2439,7 +2275,6 @@ function roomCheck() {
         roomPin ===
         roomPasswords[currentRoomNumber]
     ) {
-
 
         document
             .getElementById(
@@ -2469,15 +2304,13 @@ function roomCheck() {
                 <br>
 
                 集めた情報は
-                グループで共有してください。
+                グループで共有してください.
 
             `;
-
 
         showScreen(
             "roomSuccessScreen"
         );
-
 
     } else {
 
@@ -2491,7 +2324,6 @@ function roomCheck() {
     }
 
 }
-
 
 
 /* =====================================================
@@ -2512,13 +2344,9 @@ function openPhone(name) {
 
 
     if (!data) {
-
         return;
-
     }
 
-
-    /* ロック画面画像 */
 
     document
         .getElementById("lockScreen")
@@ -2526,46 +2354,32 @@ function openPhone(name) {
         `url("${data.lockImage}")`;
 
 
-    /* ホーム画面画像 */
-
     document
         .getElementById("homeScreen")
         .style.backgroundImage =
         `url("${data.homeImage}")`;
 
 
-    /* アプリ作成 */
-
     createHomeApps();
 
-
-    /* ロック画面を表示 */
 
     document
         .getElementById("lockScreen")
         .style.display = "flex";
 
 
-    /* パスコード画面を隠す */
-
     document
         .getElementById("passcodeScreen")
         .classList.remove("active");
 
-
-    /* ホーム画面を隠す */
 
     document
         .getElementById("homeScreen")
         .classList.remove("active");
 
 
-    /* アプリを全部閉じる */
-
     closeApp();
 
-
-    /* 忘れた場合の表示を消す */
 
     document
         .getElementById("forgotMessage")
@@ -2578,7 +2392,6 @@ function openPhone(name) {
     showScreen("phoneScreen");
 
 }
-
 
 
 /* =====================================================
@@ -2600,15 +2413,12 @@ function backToPhoneList() {
 }
 
 
-
 /* =====================================================
-   ★ ロック画面スワイプ
+   ロック画面スワイプ
 ===================================================== */
 
 let swipeStartY = 0;
-
 let swipeStartX = 0;
-
 let isSwiping = false;
 
 
@@ -2618,10 +2428,6 @@ const lockScreen =
     );
 
 
-/* -----------------------------------------------------
-   タッチ開始
------------------------------------------------------ */
-
 lockScreen.addEventListener(
     "touchstart",
     function(event) {
@@ -2629,11 +2435,8 @@ lockScreen.addEventListener(
         if (
             event.touches.length !== 1
         ) {
-
             return;
-
         }
-
 
         swipeStartY =
             event.touches[0].clientY;
@@ -2650,23 +2453,13 @@ lockScreen.addEventListener(
 );
 
 
-/* -----------------------------------------------------
-   タッチ移動
------------------------------------------------------ */
-
 lockScreen.addEventListener(
     "touchmove",
     function(event) {
 
         if (!isSwiping) {
-
             return;
-
         }
-
-        /*
-           ブラウザ側のスクロールを防止
-        */
 
         event.preventDefault();
 
@@ -2677,20 +2470,13 @@ lockScreen.addEventListener(
 );
 
 
-/* -----------------------------------------------------
-   タッチ終了
------------------------------------------------------ */
-
 lockScreen.addEventListener(
     "touchend",
     function(event) {
 
         if (!isSwiping) {
-
             return;
-
         }
-
 
         isSwiping = false;
 
@@ -2698,9 +2484,7 @@ lockScreen.addEventListener(
         if (
             event.changedTouches.length !== 1
         ) {
-
             return;
-
         }
 
 
@@ -2717,11 +2501,6 @@ lockScreen.addEventListener(
         const diffX =
             endX - swipeStartX;
 
-
-        /*
-           上方向へ100px以上移動
-           かつ横方向より縦方向の移動が大きい
-        */
 
         if (
             diffY < -100 &&
@@ -2741,12 +2520,10 @@ lockScreen.addEventListener(
 
 
 /* =====================================================
-   ★ Pointer Event
-   Safari / PCでも安定して動くようにする
+   Pointer Event
 ===================================================== */
 
 let pointerStartY = null;
-
 let pointerStartX = null;
 
 
@@ -2771,9 +2548,7 @@ lockScreen.addEventListener(
         if (
             pointerStartY === null
         ) {
-
             return;
-
         }
 
 
@@ -2798,12 +2573,10 @@ lockScreen.addEventListener(
 
 
         pointerStartY = null;
-
         pointerStartX = null;
 
     }
 );
-
 
 
 /* =====================================================
@@ -2811,10 +2584,6 @@ lockScreen.addEventListener(
 ===================================================== */
 
 function unlockPhone() {
-
-    /*
-       すでに解除されていたら何もしない
-    */
 
     if (
         document
@@ -2839,7 +2608,6 @@ function unlockPhone() {
 }
 
 
-
 /* =====================================================
    スマホパスコード
 ===================================================== */
@@ -2847,9 +2615,7 @@ function unlockPhone() {
 function phoneInput(number) {
 
     if (phonePin.length >= 4) {
-
         return;
-
     }
 
     phonePin += number;
@@ -2894,9 +2660,7 @@ function updatePhonePin() {
 function phoneCheck() {
 
     if (phonePin.length !== 4) {
-
         return;
-
     }
 
 
@@ -2933,7 +2697,6 @@ function phoneCheck() {
 }
 
 
-
 /* =====================================================
    パスワードを忘れた場合
 ===================================================== */
@@ -2957,7 +2720,6 @@ function showForgotMessage() {
     box.classList.add("show");
 
 }
-
 
 
 /* =====================================================
@@ -3010,15 +2772,10 @@ function createHomeApps() {
             const icons = {
 
                 memo: "📝",
-
                 safari: "🌐",
-
                 photo: "🖼️",
-
                 mail: "✉️",
-
                 calendar: "📅",
-
                 map: "🗺️"
 
             };
@@ -3036,7 +2793,6 @@ function createHomeApps() {
     });
 
 }
-
 
 
 /* =====================================================
@@ -3090,7 +2846,6 @@ function addAppButton(
 }
 
 
-
 /* =====================================================
    アプリを開く
 ===================================================== */
@@ -3118,9 +2873,7 @@ function openApp(app) {
 
 
     if (!image) {
-
         return;
-
     }
 
 
@@ -3146,7 +2899,6 @@ function openApp(app) {
         .classList.add("active");
 
 }
-
 
 
 /* =====================================================
@@ -3182,7 +2934,6 @@ function closeApp() {
 }
 
 
-
 /* =====================================================
    LINE
 ===================================================== */
@@ -3203,7 +2954,6 @@ function openLine() {
 
 
     data.line.forEach(person => {
-
 
         const button =
             document.createElement(
@@ -3258,7 +3008,6 @@ function openLine() {
 }
 
 
-
 /* =====================================================
    LINEチャット
 ===================================================== */
@@ -3290,7 +3039,6 @@ function openChat(person) {
 }
 
 
-
 /* =====================================================
    LINEチャット → 相手一覧
 ===================================================== */
@@ -3306,7 +3054,6 @@ function closeChat() {
         );
 
 }
-
 
 
 /* =====================================================
@@ -3395,7 +3142,6 @@ setInterval(
 
 
 updateClock();
-
 
 </script>
 
