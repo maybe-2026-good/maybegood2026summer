@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -288,189 +289,6 @@ button {
     opacity: .6;
 
     margin-bottom: 10px;
-
-}
-
-
-/* =====================================================
-   部屋パスワード
-===================================================== */
-
-.password-screen {
-
-    position: relative;
-
-    background: #181818;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-}
-
-.password-title {
-
-    font-size: 18px;
-
-    margin-bottom: 20px;
-
-    text-align: center;
-
-}
-
-.pin-display {
-
-    display: flex;
-
-    gap: 18px;
-
-    margin-bottom: 35px;
-
-}
-
-.pin-dot {
-
-    width: 15px;
-    height: 15px;
-
-    border: 2px solid white;
-
-    border-radius: 50%;
-
-}
-
-.pin-dot.filled {
-
-    background: white;
-
-}
-
-
-/* =====================================================
-   部屋数字ボタン
-===================================================== */
-
-.number-pad {
-
-    width: 280px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 12px;
-
-}
-
-.number-button {
-
-    width: 75px;
-    height: 75px;
-
-    margin: auto;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: #333;
-
-    color: white;
-
-    font-size: 25px;
-
-    cursor: pointer;
-
-}
-
-.number-button:active {
-
-    background: #666;
-
-}
-
-.pin-message {
-
-    margin-top: 25px;
-
-    text-align: center;
-
-    line-height: 1.8;
-
-}
-
-
-/* =====================================================
-   部屋成功画面
-===================================================== */
-
-#roomSuccessScreen {
-
-    position: relative;
-
-    background:
-        radial-gradient(
-            circle,
-            #333,
-            #111
-        );
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-direction: column;
-
-    padding: 30px;
-
-    text-align: center;
-
-}
-
-.success-sound {
-
-    font-size: 25px;
-
-    margin-bottom: 25px;
-
-}
-
-.success-title {
-
-    font-size: 28px;
-
-    margin-bottom: 30px;
-
-}
-
-.success-message {
-
-    max-width: 600px;
-
-    line-height: 2;
-
-    font-size: 16px;
-
-}
-
-.investigate-button {
-
-    margin-top: 35px;
-
-    padding: 15px 35px;
-
-    background: white;
-
-    color: black;
-
-    border: none;
-
-    border-radius: 8px;
-
-    font-size: 16px;
 
 }
 
@@ -1123,9 +941,11 @@ button {
 
     display: flex;
 
-    align-items: flex-start;
+    flex-direction: column;
 
-    justify-content: center;
+    align-items: center;
+
+    justify-content: flex-start;
 
     background: #111;
 
@@ -1140,6 +960,8 @@ button {
     display: block;
 
     object-fit: contain;
+
+    flex-shrink: 0;
 
 }
 
@@ -1386,174 +1208,6 @@ button {
         onclick="showScreen('phoneSelectScreen')">
 
         容疑者のスマホを調べる
-
-    </button>
-
-</section>
-
-
-<!-- =====================================================
-     部屋選択
-===================================================== -->
-
-<section
-    id="roomSelectScreen"
-    class="screen selection-screen">
-
-    <button
-        class="back-button"
-        onclick="showScreen('menuScreen')">
-
-        ‹
-
-    </button>
-
-    <h2 class="page-title">
-        容疑者の部屋を調べる
-    </h2>
-
-    <div class="selection-grid">
-
-        <button
-            class="selection-button"
-            onclick="openRoom('みさ','101')">
-
-            <span>101号室</span>
-            みさの部屋
-
-        </button>
-
-        <button
-            class="selection-button"
-            onclick="openRoom('りんたろう','102')">
-
-            <span>102号室</span>
-            りんたろうの部屋
-
-        </button>
-
-        <button
-            class="selection-button"
-            onclick="openRoom('ゆうき','202')">
-
-            <span>202号室</span>
-            ゆうきの部屋
-
-        </button>
-
-        <button
-            class="selection-button"
-            onclick="openRoom('わたる','203')">
-
-            <span>203号室</span>
-            わたるの部屋
-
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     部屋パスワード
-===================================================== -->
-
-<section
-    id="roomPasswordScreen"
-    class="screen password-screen">
-
-    <button
-        class="back-button"
-        onclick="showScreen('roomSelectScreen')">
-
-        ‹
-
-    </button>
-
-    <div class="password-title">
-
-        <span id="roomNumberText"></span>号室
-
-    </div>
-
-    <div class="password-title">
-
-        暗証番号を入力してください
-
-    </div>
-
-    <div class="pin-display">
-
-        <div class="pin-dot" id="roomPin1"></div>
-        <div class="pin-dot" id="roomPin2"></div>
-        <div class="pin-dot" id="roomPin3"></div>
-        <div class="pin-dot" id="roomPin4"></div>
-
-    </div>
-
-    <div class="number-pad">
-
-        <button class="number-button" onclick="roomInput(1)">1</button>
-        <button class="number-button" onclick="roomInput(2)">2</button>
-        <button class="number-button" onclick="roomInput(3)">3</button>
-
-        <button class="number-button" onclick="roomInput(4)">4</button>
-        <button class="number-button" onclick="roomInput(5)">5</button>
-        <button class="number-button" onclick="roomInput(6)">6</button>
-
-        <button class="number-button" onclick="roomInput(7)">7</button>
-        <button class="number-button" onclick="roomInput(8)">8</button>
-        <button class="number-button" onclick="roomInput(9)">9</button>
-
-        <button class="number-button" onclick="roomClear()">⌫</button>
-        <button class="number-button" onclick="roomInput(0)">0</button>
-        <button class="number-button" onclick="roomCheck()">✓</button>
-
-    </div>
-
-    <div
-        id="roomPinMessage"
-        class="pin-message">
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     部屋成功画面
-===================================================== -->
-
-<section
-    id="roomSuccessScreen"
-    class="screen">
-
-    <button
-        class="back-button"
-        onclick="showScreen('roomSelectScreen')">
-
-        ‹
-
-    </button>
-
-    <div class="success-sound">
-        ガチャ…。
-    </div>
-
-    <div class="success-title">
-        暗証番号は正しかったようだ。
-    </div>
-
-    <div
-        id="roomSuccessMessage"
-        class="success-message">
-    </div>
-
-    <button
-        class="investigate-button"
-        onclick="showScreen('roomSelectScreen')">
-
-        部屋選択画面へ戻る
 
     </button>
 
@@ -1861,13 +1515,8 @@ button {
                 </div>
 
                 <div
+                    id="imageAppContent"
                     class="image-app-content">
-
-                    <img
-                        id="appImage"
-                        src=""
-                        alt="アプリ内容">
-
                 </div>
 
             </div>
@@ -1881,20 +1530,6 @@ button {
 
 
 <script>
-
-/* =====================================================
-   部屋の暗証番号
-===================================================== */
-
-const roomPasswords = {
-
-    "101": "1234",
-    "102": "1234",
-    "202": "1234",
-    "203": "1234"
-
-};
-
 
 /* =====================================================
    スマホデータ
@@ -1987,11 +1622,12 @@ const phoneData = {
             mail:
                 "rintaro-mail.jpeg",
 
-            calendar:
-                "rintaro-calendar7.jpeg"
-                "rintaro-calendar8.jpeg"
-                "rintaro-calendar9.jpeg"
-                "rintaro-calendar10.jpeg",
+            calendar: [
+                "rintaro-calendar7.jpeg",
+                "rintaro-calendar8.jpeg",
+                "rintaro-calendar9.jpeg",
+                "rintaro-calendar10.jpeg"
+            ],
 
             map:
                 "rintaro-map.jpeg"
@@ -2151,10 +1787,6 @@ const appNames = {
    現在の状態
 ===================================================== */
 
-let currentRoomName = "";
-let currentRoomNumber = "";
-let roomPin = "";
-
 let currentPhoneName = "";
 let phonePin = "";
 
@@ -2183,138 +1815,6 @@ function showScreen(id) {
     if (target) {
 
         target.classList.add("active");
-
-    }
-
-}
-
-
-/* =====================================================
-   部屋
-===================================================== */
-
-function openRoom(name, number) {
-
-    currentRoomName = name;
-    currentRoomNumber = number;
-    roomPin = "";
-
-    document
-        .getElementById("roomNumberText")
-        .textContent = number;
-
-    document
-        .getElementById("roomPinMessage")
-        .textContent = "";
-
-    updateRoomPin();
-
-    showScreen("roomPasswordScreen");
-
-}
-
-
-function roomInput(number) {
-
-    if (roomPin.length >= 4) {
-        return;
-    }
-
-    roomPin += number;
-
-    updateRoomPin();
-
-}
-
-
-function roomClear() {
-
-    roomPin =
-        roomPin.slice(0, -1);
-
-    updateRoomPin();
-
-}
-
-
-function updateRoomPin() {
-
-    for (
-        let i = 1;
-        i <= 4;
-        i++
-    ) {
-
-        document
-            .getElementById(
-                "roomPin" + i
-            )
-            .classList.toggle(
-                "filled",
-                i <= roomPin.length
-            );
-
-    }
-
-}
-
-
-function roomCheck() {
-
-    if (roomPin.length !== 4) {
-        return;
-    }
-
-
-    if (
-        roomPin ===
-        roomPasswords[currentRoomNumber]
-    ) {
-
-        document
-            .getElementById(
-                "roomSuccessMessage"
-            )
-            .innerHTML = `
-
-                <strong>
-                    ${currentRoomName}の部屋を調べろ。
-                </strong>
-
-                <br><br>
-
-                ※グループの中で
-                ${currentRoomName}の部屋を
-                捜査する人を2人決めてください。
-
-                <br>
-
-                制限時間は2分間です。
-
-                <br>
-
-                部屋の中のものは
-                自由に撮影してOKです。
-
-                <br>
-
-                集めた情報は
-                グループで共有してください.
-
-            `;
-
-        showScreen(
-            "roomSuccessScreen"
-        );
-
-    } else {
-
-        document
-            .getElementById(
-                "roomPinMessage"
-            )
-            .textContent =
-            "暗証番号が違います。";
 
     }
 
@@ -2880,11 +2380,44 @@ function openApp(app) {
         appNames[app];
 
 
-    document
-        .getElementById(
-            "appImage"
-        )
-        .src = image;
+    const content =
+        document.getElementById(
+            "imageAppContent"
+        );
+
+
+    content.innerHTML = "";
+
+
+    /*
+       画像が複数枚の場合は
+       配列として設定された画像を
+       上から順番に縦に表示する
+    */
+
+    const images =
+        Array.isArray(image)
+            ? image
+            : [image];
+
+
+    images.forEach(imagePath => {
+
+        const img =
+            document.createElement("img");
+
+
+        img.src =
+            imagePath;
+
+
+        img.alt =
+            "アプリ内容";
+
+
+        content.appendChild(img);
+
+    });
 
 
     document
@@ -3144,3 +2677,4 @@ updateClock();
 </body>
 
 </html>
+```
